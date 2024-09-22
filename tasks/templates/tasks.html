@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-med-6 offset-md-3">
+            <h1 class="text-center display-3 py-5">Citas</h1>
+            <ul class="list-group">
+                {% for task in tasks %}
+                <a class="list-group-item" href="{% url 'task_detail' task.id %}">
+                    <header>
+                        <h1 class="fw-bold text-success">{{task.nombre}}</h1>
+                    <p class="fw-bold">{{task.especialidad}}</p>
+                    <p>{{task.user.username}}</p>
+                    </header>
+                </a>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
